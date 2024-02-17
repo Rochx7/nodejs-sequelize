@@ -24,10 +24,12 @@ class Controller {
   async newCreate(req, res) {
     const createData = req.body;
     try {
+      console.log(createData);
       const newRegister = await this.entityService.create(createData);
       return res.status(200).json(newRegister);
     } catch (error) {
-      //error
+      console.error(error);
+      return res.status(500).json({ error: "Erro interno do servidor" });
     }
   }
 

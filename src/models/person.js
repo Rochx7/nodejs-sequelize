@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
       });
       Person.hasMany(models.Enrollment, {
         foreignKey: "student_id",
+        // scope: {
+        //   status: "matriculado",
+        // },
+        as: "enrolledLessons",
       });
     }
   }

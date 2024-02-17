@@ -13,6 +13,9 @@ router.post("/persons", (req, res) => personController.newCreate(req, res));
 router.put("/persons/:id", (req, res) => personController.update(req, res));
 router.delete("/persons/:id", (req, res) => personController.delete(req, res));
 
+router.get("/persons/:studentId/enrollments", (req, res) =>
+  personController.getEnrollment(req, res)
+);
 router.post("/persons/:studentId/enrollments", (req, res) =>
   enrollmentController.newCreate(req, res)
 );
