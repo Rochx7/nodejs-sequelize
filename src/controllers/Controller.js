@@ -11,6 +11,26 @@ class Controller {
     }
   }
 
+  async getById(req, res) {
+    try {
+      const { id } = req.params;
+      const register = await this.entityService.getOneRegister(id);
+      return res.status(200).json(register);
+    } catch (error) {
+      //error
+    }
+  }
+
+  async newCreate(req, res) {
+    const createData = req.body;
+    try {
+      const newRegister = await this.entityService.create(createData);
+      return res.status(200).json(newRegister);
+    } catch (error) {
+      //error
+    }
+  }
+
   async update(req, res) {
     const { id } = req.params;
     const updatedData = req.body;
